@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Colors</title>
+
+	<script type="text/javascript">
+
+	    function changeColor() {
+	    	color = document.getElementById('myColor').value;   
+	    	document.getElementById('box').style.backgroundColor =  color;
+	    	document.getElementById('colorVal').innerHTML = color;
+	    	
+	    	function cutHex(h) { return (h.charAt(0)=="#") ? h.substring(1,7) : h}
+	    	var r = parseInt((cutHex(color)).substring(0,2),16);
+	    	var g = parseInt((cutHex(color)).substring(2,4),16);
+	    	var b = parseInt((cutHex(color)).substring(4,6),16);
+
+	    	document.getElementById('rgbVal').innerHTML = 'rgb(' + r + ', ' + g + ', ' + b + ')';
+
+	        return false;
+	    }   
+	   
+
+	</script>
+</head>
+<body>
+
+	<div class="conteiner">
+		<div class="input">
+			<p>Enter a Color:</p>
+			<input type="text" value="#FFFFFF" id="myColor" />
+			<button type="" onclick="changeColor()">OK</button>
+		</div>
+		<div class="output">
+			<p>Selected Color:</p>
+			<div id="box" style="height:100px; width:100px; border:1px solid;"></div>
+			<p id="colorVal"></p>
+			<p id="rgbVal"></p>
+		</div>
+	</div>
+	
+</body>
+</html>
